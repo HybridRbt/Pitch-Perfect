@@ -41,7 +41,7 @@
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R0J-k5-fSJ"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhi-h6-XoX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhi-h6-XoX">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,25 +54,54 @@
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0k-dS-Usk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch Perfect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="004-RL-PG9">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record your own voice, and add funny effects to it!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-jf-wdi">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="83" y="153" width="235" height="78"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zDa-Y4-zxG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1CL-IN-YgI"/>
                             <constraint firstItem="fhi-h6-XoX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3UI-ZH-rPF"/>
+                            <constraint firstItem="Ex3-jf-wdi" firstAttribute="top" secondItem="004-RL-PG9" secondAttribute="bottom" constant="20" id="6S3-gg-dCo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zDa-Y4-zxG" secondAttribute="bottom" constant="30.5" id="6S4-Gt-Dvd"/>
                             <constraint firstItem="fhi-h6-XoX" firstAttribute="top" secondItem="IXT-uB-yQo" secondAttribute="bottom" constant="49" id="CmU-hU-FHF"/>
                             <constraint firstItem="IXT-uB-yQo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NS9-xF-rpX"/>
+                            <constraint firstItem="004-RL-PG9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="as1-mZ-wdN"/>
                             <constraint firstItem="IXT-uB-yQo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ePE-fs-aKN"/>
+                            <constraint firstItem="Ex3-jf-wdi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gMW-FK-wQx"/>
+                            <constraint firstItem="004-RL-PG9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qXy-Hr-Ihy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ex3-jf-wdi" secondAttribute="trailing" constant="62" id="uwR-ee-hnw"/>
+                            <constraint firstItem="Ex3-jf-wdi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="63" id="wzm-KA-M0T"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="fhi-h6-XoX"/>
                                 <exclude reference="zDa-Y4-zxG"/>
+                                <exclude reference="004-RL-PG9"/>
+                                <exclude reference="Ex3-jf-wdi"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1CL-IN-YgI"/>
+                                <exclude reference="6S3-gg-dCo"/>
+                                <exclude reference="gMW-FK-wQx"/>
+                                <exclude reference="uwR-ee-hnw"/>
+                                <exclude reference="wzm-KA-M0T"/>
+                                <exclude reference="as1-mZ-wdN"/>
+                                <exclude reference="qXy-Hr-Ihy"/>
                                 <exclude reference="3UI-ZH-rPF"/>
                                 <exclude reference="CmU-hU-FHF"/>
+                                <exclude reference="1CL-IN-YgI"/>
                                 <exclude reference="6S4-Gt-Dvd"/>
                             </mask>
                         </variation>
@@ -80,11 +109,19 @@
                             <mask key="subviews">
                                 <include reference="fhi-h6-XoX"/>
                                 <include reference="zDa-Y4-zxG"/>
+                                <include reference="004-RL-PG9"/>
+                                <include reference="Ex3-jf-wdi"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1CL-IN-YgI"/>
+                                <include reference="6S3-gg-dCo"/>
+                                <include reference="gMW-FK-wQx"/>
+                                <include reference="uwR-ee-hnw"/>
+                                <include reference="wzm-KA-M0T"/>
+                                <include reference="as1-mZ-wdN"/>
+                                <include reference="qXy-Hr-Ihy"/>
                                 <include reference="3UI-ZH-rPF"/>
                                 <include reference="CmU-hU-FHF"/>
+                                <include reference="1CL-IN-YgI"/>
                                 <include reference="6S4-Gt-Dvd"/>
                             </mask>
                         </variation>
@@ -92,7 +129,7 @@
                     <navigationItem key="navigationItem" id="yyw-WO-hn4"/>
                     <connections>
                         <outlet property="recordButton" destination="IXT-uB-yQo" id="wLZ-VE-ZSE"/>
-                        <outlet property="recordingInProgress" destination="fhi-h6-XoX" id="ePM-zG-KzQ"/>
+                        <outlet property="recordingStatus" destination="fhi-h6-XoX" id="wQS-zh-iKM"/>
                         <outlet property="stopButton" destination="zDa-Y4-zxG" id="geF-tz-1kQ"/>
                         <segue destination="F4N-kt-nzA" kind="show" identifier="stopRecording" id="HTF-Yc-wpg"/>
                     </connections>

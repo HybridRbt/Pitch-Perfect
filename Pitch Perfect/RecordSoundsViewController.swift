@@ -11,12 +11,16 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    @IBOutlet weak var recordingInProgress: UILabel!
+    @IBOutlet weak var recordingStatus: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     
     var audioRecorder : AVAudioRecorder!
     var recordedAudio: RecordedAudio!
+    
+    let textWhenNotRecording = "Press the microphone to start recording."
+    let textWhenRecording = "Recording..."
+    let textRecordedSuccess = "Recording is done!"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +35,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true
         recordButton.enabled = true
+        recordingStatus.text = textWhenNotRecording
     }
     
     func setUIForRecording() {
         print("in recordAudio...")
-        recordingInProgress.hidden = false
+        recordingStatus.text = textWhenRecording
         stopButton.hidden = false
         recordButton.enabled = false
     }
     
     func setUIForStopRecording() {
         print("stop recording...")
-        recordingInProgress.hidden = true
+        recordingStatus.text = textRecordedSuccess
         recordButton.enabled = true
         stopButton.hidden = true
     }
