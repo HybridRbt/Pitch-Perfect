@@ -136,7 +136,9 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     func playMixedFile(playerNode: AVAudioPlayerNode, file: AVAudioFile) {
         stopAllAudio()
-        playerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
+        let buffer = AVAudioPCMBuffer(PCMFormat: file.processingFormat, frameCapacity: AVAudioFrameCount(file.length))
+        try! file.readIntoBuffer(buffer)
+        playerNode.scheduleBuffer(buffer, completionHandler: playerFinished)
         try! audioEngine.start()
         playerNode.play()
     }
