@@ -35,15 +35,6 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     }
 
     func initAudioPlayer() {
-//        if let fileURL = NSBundle.mainBundle().URLForResource("movie_quote", withExtension: "mp3") {
-//            try! audioPlayer = AVAudioPlayer(contentsOfURL: fileURL)
-//            audioPlayer.stop()
-//            audioPlayer.enableRate = true
-//        }
-//        else {
-//            print("File not Found!")
-//        }
-        
         audioPlayer = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
         audioPlayer.stop()
         audioPlayer.enableRate = true
@@ -97,6 +88,9 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+    /**
+     Called after audio player node has finished playing
+     */
     func playerFinished() {
         stopAllAudio()
         enableDisableAllButtons(true)
