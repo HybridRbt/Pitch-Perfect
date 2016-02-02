@@ -176,21 +176,25 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func playChipmunkAudio(sender: UIButton) {
         let chipmunkPitch = 1000 as Float
+        enableDisableAllButtons(false)
         playAudioFileWithVariablePitch(audioFile, pitch: chipmunkPitch)
     }
     
     @IBAction func playDarthvaderAudio(sender: UIButton) {
         let darthVaderPitch = -1000 as Float
+        enableDisableAllButtons(false)
         playAudioFileWithVariablePitch(audioFile, pitch: darthVaderPitch)
     }
     
     @IBAction func playEchoAudio(sender: UIButton) {
         let time = 1 as NSTimeInterval
+        enableDisableAllButtons(false)
         playAudioFileWithEcho(audioFile, delayTime: time)
     }
     
     @IBAction func playReverbAudio(sender: UIButton) {
         let effect = AVAudioUnitReverbPreset.LargeRoom
+        enableDisableAllButtons(false)
         playAudioFileWithReverb(audioFile, presetEffect: effect)
     }
     
