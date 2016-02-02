@@ -29,6 +29,10 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         initAudioEngineAndAudioFile()
         initAudioPlayer()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        stopPlayAudioButton.hidden = true
+    }
 
     func initAudioPlayer() {
 //        if let fileURL = NSBundle.mainBundle().URLForResource("movie_quote", withExtension: "mp3") {
