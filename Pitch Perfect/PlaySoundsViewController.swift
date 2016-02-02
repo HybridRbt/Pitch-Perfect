@@ -50,12 +50,13 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioFile = try! AVAudioFile(forReading: receivedAudio.filePathUrl)
     }
     
-    func resetAudioPlayer() {
+    func resetAudioPlayerAndAudioEngine() {
         audioPlayer.currentTime = 0.0
+        audioEngine.reset()
     }
     
     func playAudio(rate: Float) {
-        resetAudioPlayer()
+        resetAudioPlayerAndAudioEngine()
         audioPlayer.rate = rate
         audioPlayer.play()
     }
@@ -166,7 +167,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func stopPlayAudio(sender: UIButton) {
         audioPlayer.stop()
-        resetAudioPlayer()
+        resetAudioPlayerAndAudioEngine()
         enableDisableAllButtons(true)
     }
     
