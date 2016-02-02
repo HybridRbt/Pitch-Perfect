@@ -134,6 +134,9 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func playEchoAudio(sender: UIButton) {
         let time = 1 as NSTimeInterval
         playAudioFileWithDelayedFeedback(audioFile, delayTime: time)
+    @IBAction func playReverbAudio(sender: UIButton) {
+        let effect = AVAudioUnitReverbPreset.LargeRoom
+        playAudioFileWithReverb(audioFile, presetEffect: effect)
     }
     
     /*
