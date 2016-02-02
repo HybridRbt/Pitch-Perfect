@@ -103,6 +103,8 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func connectSoundEffectToPlayer(effect: AVAudioNode) -> AVAudioPlayerNode {
+        initAudioEngineAndAudioFile()
+        
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
