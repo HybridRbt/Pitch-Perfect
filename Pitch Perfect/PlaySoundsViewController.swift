@@ -96,6 +96,12 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
             stopPlayAudioButton.hidden = false
         }
     }
+    
+    func playerFinished() {
+        stopAllAudio()
+        enableDisableAllButtons(true)
+    }
+    
     func connectSoundEffectToPlayer(effect: AVAudioNode) -> AVAudioPlayerNode {
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
