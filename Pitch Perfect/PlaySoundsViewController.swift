@@ -80,6 +80,22 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         audioEngine.reset()
     }
     
+    func enableDisableAllButtons(enabled: Bool) {
+        slowSpeedButton.enabled = enabled
+        fastSpeedButton.enabled = enabled
+        chipMunkButton.enabled = enabled
+        darthVaderButton.enabled = enabled
+        echoButton.enabled = enabled
+        reverbButton.enabled = enabled
+        
+        if (enabled) {
+            //no stop button shown
+            stopPlayAudioButton.hidden = true
+        } else {
+            //show stop button when playing
+            stopPlayAudioButton.hidden = false
+        }
+    }
     func connectSoundEffectToPlayer(effect: AVAudioNode) -> AVAudioPlayerNode {
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
