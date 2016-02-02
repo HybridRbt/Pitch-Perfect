@@ -9,7 +9,14 @@
 import UIKit
 import AVFoundation
 
-class PlaySoundsViewController: UIViewController {
+class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
+    @IBOutlet weak var slowSpeedButton: UIButton!
+    @IBOutlet weak var fastSpeedButton: UIButton!
+    @IBOutlet weak var chipMunkButton: UIButton!
+    @IBOutlet weak var darthVaderButton: UIButton!
+    @IBOutlet weak var echoButton: UIButton!
+    @IBOutlet weak var reverbButton: UIButton!
+    @IBOutlet weak var stopPlayAudioButton: UIButton!
     
     var audioPlayer: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
