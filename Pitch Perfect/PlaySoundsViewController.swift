@@ -91,15 +91,31 @@ class PlaySoundsViewController: UIViewController {
         return audioPlayerNode
     }
     
+    func prepareAudioEngineForTimeDelay(time: NSTimeInterval) -> AVAudioPlayerNode {
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        let delay = AVAudioUnitDelay()
+        delay.delayTime = time
+        audioEngine.attachNode(delay)
+        
+        audioEngine.connect(audioPlayerNode, to: delay, format: nil)
+        audioEngine.connect(delay, to: audioEngine.outputNode, format: nil)
+        
+        return audioPlayerNode
+    }
+    
     func playAudioFileWithVariablePitch(file: AVAudioFile, pitch: Float) {
         stopAllAudio()
-        let audioPlayerNode = prepareAudioEngine(pitch)
         let audioPlayerNode = prepareAudioEngineForPitchChanging(pitch)
         audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
         audioPlayerNode.play()
     }
     
+    func playAudioFileWithDelayedFeedback(file: AVAudioFile, delayTime: NSTimeInterval) {
+        stopAllAudio()
+        let audioPlayerNode = prepareAudioEngineForTimeDelay(delayTime)
         audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
         audioPlayerNode.play()
