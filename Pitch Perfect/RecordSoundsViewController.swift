@@ -43,6 +43,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordingPaused = false
     }
     
+    /**
+     Set the image on the pause/resume button according to current recording state
+     
+     - parameter paused: indicate if the recording is paused
+     */
     func setPauseImageOnPauseResumeButton(paused: Bool) {
         if (paused) {
             //set resume image
@@ -84,14 +89,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         setPauseImageOnPauseResumeButton(true)
     }
     
+    /**
+     Create audio file path for audio recorder
+     
+     - returns: NSURL object
+     */
     func setupURLForAudioRecorder() -> NSURL {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        
-//        let currentDateTime = NSDate()
-//        let formatter = NSDateFormatter()
-//        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        
-//        let recordingName = formatter.stringFromDate(currentDateTime) + ".wav"
         let recordingName = "my_audio.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
