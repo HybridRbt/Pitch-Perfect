@@ -77,48 +77,50 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.reset()
     }
     
-    func prepareAudioEngineForPitchChanging(pitch: Float) -> AVAudioPlayerNode {
+    func connectSoundEffectToPlayer(effect: AVAudioNode) -> AVAudioPlayerNode {
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
+        audioEngine.attachNode(effect)
+        audioEngine.connect(audioPlayerNode, to: effect, format: nil)
+        audioEngine.connect(effect, to: audioEngine.outputNode, format: nil)
+        
+        return audioPlayerNode
+    }
+    
+    func prepareAudioEngineForPitchChanging(pitch: Float) -> AVAudioPlayerNode {
         let timePitch = AVAudioUnitTimePitch()
         timePitch.pitch = pitch
-        audioEngine.attachNode(timePitch)
         
-        audioEngine.connect(audioPlayerNode, to: timePitch, format: nil)
-        audioEngine.connect(timePitch, to: audioEngine.outputNode, format: nil)
-        
-        return audioPlayerNode
+        return connectSoundEffectToPlayer(timePitch)
     }
     
-    func prepareAudioEngineForTimeDelay(time: NSTimeInterval) -> AVAudioPlayerNode {
-        let audioPlayerNode = AVAudioPlayerNode()
-        audioEngine.attachNode(audioPlayerNode)
-        
+    func prepareAudioEngineForEcho(time: NSTimeInterval) -> AVAudioPlayerNode {
         let delay = AVAudioUnitDelay()
         delay.delayTime = time
-        audioEngine.attachNode(delay)
         
-        audioEngine.connect(audioPlayerNode, to: delay, format: nil)
-        audioEngine.connect(delay, to: audioEngine.outputNode, format: nil)
-        
-        return audioPlayerNode
+        return connectSoundEffectToPlayer(delay)
     }
     
-    func playAudioFileWithVariablePitch(file: AVAudioFile, pitch: Float) {
+    func prepareAudioEngineForReverb(preset: AVAudioUnitReverbPreset) -> AVAudioPlayerNode {
+        let reverb = AVAudioUnitReverb()
+        reverb.loadFactoryPreset(preset)
+        
+        return connectSoundEffectToPlayer(reverb)
+    }
+    
+    func playMixedFile(playerNode: AVAudioPlayerNode, file: AVAudioFile) {
         stopAllAudio()
+        playerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
+        try! audioEngine.start()
+        playerNode.play()
+    }
+    
+    func playAudioFileWithVariablePitch(audioFile: AVAudioFile, pitch: Float) {
         let audioPlayerNode = prepareAudioEngineForPitchChanging(pitch)
-        audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
-        try! audioEngine.start()
-        audioPlayerNode.play()
+        playMixedFile(audioPlayerNode, file: audioFile)
     }
     
-    func playAudioFileWithDelayedFeedback(file: AVAudioFile, delayTime: NSTimeInterval) {
-        stopAllAudio()
-        let audioPlayerNode = prepareAudioEngineForTimeDelay(delayTime)
-        audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
-        try! audioEngine.start()
-        audioPlayerNode.play()
     func playAudioFileWithEcho(audioFile: AVAudioFile, delayTime: NSTimeInterval) {
         let audioPlayerNode = prepareAudioEngineForEcho(delayTime)
         playMixedFile(audioPlayerNode, file: audioFile)
