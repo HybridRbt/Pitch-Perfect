@@ -73,19 +73,6 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func playSlowAudio(sender: UIButton) {
-        playAudio(0.5)
-    }
-    
-    @IBAction func playFastAudio(sender: UIButton) {
-        playAudio(2.0)
-    }
-    
-    @IBAction func stopPlayAudio(sender: UIButton) {
-        audioPlayer.stop()
-        resetAudioPlayer()
-    }
     
     func stopAllAudio() {
         audioEngine.stop()
@@ -145,6 +132,22 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
     func playAudioFileWithReverb(audioFile: AVAudioFile, presetEffect: AVAudioUnitReverbPreset) {
         let audioPlayerNode = prepareAudioEngineForReverb(presetEffect)
         playMixedFile(audioPlayerNode, file: audioFile)
+    }
+    
+    @IBAction func playSlowAudio(sender: UIButton) {
+        playAudio(0.5)
+        enableDisableAllButtons(false)
+    }
+    
+    @IBAction func playFastAudio(sender: UIButton) {
+        playAudio(2.0)
+        enableDisableAllButtons(false)
+    }
+    
+    @IBAction func stopPlayAudio(sender: UIButton) {
+        audioPlayer.stop()
+        resetAudioPlayer()
+        enableDisableAllButtons(true)
     }
     
     @IBAction func playChipmunkAudio(sender: UIButton) {
