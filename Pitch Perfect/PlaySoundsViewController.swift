@@ -119,6 +119,11 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
         audioPlayerNode.play()
+    func playAudioFileWithEcho(audioFile: AVAudioFile, delayTime: NSTimeInterval) {
+        let audioPlayerNode = prepareAudioEngineForEcho(delayTime)
+        playMixedFile(audioPlayerNode, file: audioFile)
+    }
+    
     }
     
     @IBAction func playChipmunkAudio(sender: UIButton) {
@@ -133,7 +138,9 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func playEchoAudio(sender: UIButton) {
         let time = 1 as NSTimeInterval
-        playAudioFileWithDelayedFeedback(audioFile, delayTime: time)
+        playAudioFileWithEcho(audioFile, delayTime: time)
+    }
+    
     @IBAction func playReverbAudio(sender: UIButton) {
         let effect = AVAudioUnitReverbPreset.LargeRoom
         playAudioFileWithReverb(audioFile, presetEffect: effect)
