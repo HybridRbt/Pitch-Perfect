@@ -265,6 +265,15 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="chipMunkButton" destination="S7N-Qd-h9c" id="Tri-6B-MKV"/>
+                        <outlet property="darthVaderButton" destination="eKL-I3-8fq" id="Fe5-Jr-Hss"/>
+                        <outlet property="echoButton" destination="uQ2-Uq-Th8" id="yFn-ab-Hpe"/>
+                        <outlet property="fastSpeedButton" destination="ZQg-2Y-iKC" id="tpe-y7-Xwr"/>
+                        <outlet property="reverbButton" destination="wub-cW-Mag" id="Sf4-jC-LuF"/>
+                        <outlet property="slowSpeedButton" destination="Svh-Bq-X3s" id="xPT-tr-rla"/>
+                        <outlet property="stopPlayAudioButton" destination="Xis-DG-mkH" id="PPY-N6-cht"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4w-es-fuV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
