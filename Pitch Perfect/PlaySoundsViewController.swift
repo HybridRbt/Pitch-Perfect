@@ -36,6 +36,11 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer = try! AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
         audioPlayer.stop()
         audioPlayer.enableRate = true
+        audioPlayer.delegate = self
+    }
+    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        enableDisableAllButtons(true)
     }
     
     func initAudioEngineAndAudioFile() {
