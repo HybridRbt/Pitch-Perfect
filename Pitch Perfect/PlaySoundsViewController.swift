@@ -131,6 +131,10 @@ class PlaySoundsViewController: UIViewController {
         playAudioFileWithVariablePitch(audioFile, pitch: darthVaderPitch)
     }
     
+    @IBAction func playEchoAudio(sender: UIButton) {
+        let time = 1 as NSTimeInterval
+        playAudioFileWithDelayedFeedback(audioFile, delayTime: time)
+    }
     
     /*
     // MARK: - Navigation
