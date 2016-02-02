@@ -77,7 +77,7 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.reset()
     }
     
-    func prepareAudioEngine(pitch: Float) -> AVAudioPlayerNode {
+    func prepareAudioEngineForPitchChanging(pitch: Float) -> AVAudioPlayerNode {
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
@@ -94,6 +94,12 @@ class PlaySoundsViewController: UIViewController {
     func playAudioFileWithVariablePitch(file: AVAudioFile, pitch: Float) {
         stopAllAudio()
         let audioPlayerNode = prepareAudioEngine(pitch)
+        let audioPlayerNode = prepareAudioEngineForPitchChanging(pitch)
+        audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
+        try! audioEngine.start()
+        audioPlayerNode.play()
+    }
+    
         audioPlayerNode.scheduleFile(file, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
         audioPlayerNode.play()
