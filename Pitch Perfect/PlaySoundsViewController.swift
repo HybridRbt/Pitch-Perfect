@@ -124,6 +124,9 @@ class PlaySoundsViewController: UIViewController {
         playMixedFile(audioPlayerNode, file: audioFile)
     }
     
+    func playAudioFileWithReverb(audioFile: AVAudioFile, presetEffect: AVAudioUnitReverbPreset) {
+        let audioPlayerNode = prepareAudioEngineForReverb(presetEffect)
+        playMixedFile(audioPlayerNode, file: audioFile)
     }
     
     @IBAction func playChipmunkAudio(sender: UIButton) {
