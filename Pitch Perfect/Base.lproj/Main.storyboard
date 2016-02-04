@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -89,12 +90,12 @@
                                 <exclude reference="wIm-6a-ZkJ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="OaQ-v1-S79"/>
+                                <exclude reference="q7a-EB-Wme"/>
                                 <exclude reference="as1-mZ-wdN"/>
                                 <exclude reference="qXy-Hr-Ihy"/>
                                 <exclude reference="3UI-ZH-rPF"/>
                                 <exclude reference="CmU-hU-FHF"/>
-                                <exclude reference="q7a-EB-Wme"/>
-                                <exclude reference="OaQ-v1-S79"/>
                                 <exclude reference="6S4-Gt-Dvd"/>
                                 <exclude reference="bSi-jI-wY4"/>
                             </mask>
@@ -107,12 +108,12 @@
                                 <include reference="wIm-6a-ZkJ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="OaQ-v1-S79"/>
+                                <include reference="q7a-EB-Wme"/>
                                 <include reference="as1-mZ-wdN"/>
                                 <include reference="qXy-Hr-Ihy"/>
                                 <include reference="3UI-ZH-rPF"/>
                                 <include reference="CmU-hU-FHF"/>
-                                <include reference="q7a-EB-Wme"/>
-                                <include reference="OaQ-v1-S79"/>
                                 <include reference="6S4-Gt-Dvd"/>
                                 <include reference="bSi-jI-wY4"/>
                             </mask>
@@ -221,10 +222,12 @@
                                 <exclude reference="wub-cW-Mag"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Q16-tu-FUg"/>
-                                <exclude reference="W4r-W8-OXw"/>
+                                <exclude reference="Oar-Sh-1XS"/>
                                 <exclude reference="8cC-cM-tJ0"/>
                                 <exclude reference="gqr-hs-KtA"/>
+                                <exclude reference="Q16-tu-FUg"/>
+                                <exclude reference="W4r-W8-OXw"/>
+                                <exclude reference="1v8-CP-pVk"/>
                                 <exclude reference="E0r-eM-PBe"/>
                                 <exclude reference="axe-QA-U7y"/>
                                 <exclude reference="Aax-C6-aSk"/>
@@ -233,8 +236,6 @@
                                 <exclude reference="si3-PR-jVo"/>
                                 <exclude reference="cea-Xq-XtV"/>
                                 <exclude reference="dCr-Md-z0R"/>
-                                <exclude reference="1v8-CP-pVk"/>
-                                <exclude reference="Oar-Sh-1XS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -248,10 +249,12 @@
                                 <include reference="wub-cW-Mag"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Q16-tu-FUg"/>
-                                <include reference="W4r-W8-OXw"/>
+                                <include reference="Oar-Sh-1XS"/>
                                 <include reference="8cC-cM-tJ0"/>
                                 <include reference="gqr-hs-KtA"/>
+                                <include reference="Q16-tu-FUg"/>
+                                <include reference="W4r-W8-OXw"/>
+                                <include reference="1v8-CP-pVk"/>
                                 <include reference="E0r-eM-PBe"/>
                                 <include reference="axe-QA-U7y"/>
                                 <include reference="Aax-C6-aSk"/>
@@ -260,8 +263,6 @@
                                 <include reference="si3-PR-jVo"/>
                                 <include reference="cea-Xq-XtV"/>
                                 <include reference="dCr-Md-z0R"/>
-                                <include reference="1v8-CP-pVk"/>
-                                <include reference="Oar-Sh-1XS"/>
                             </mask>
                         </variation>
                     </view>
