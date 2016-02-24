@@ -1,4 +1,4 @@
-# Pitch-Perfect
+# Pitch-Perfect [![codebeat badge](https://codebeat.co/badges/dc8f44df-09e3-49b7-b577-6e9c1fcd9385)](https://codebeat.co/projects/github-com-hybridrbt-pitch-perfect)
 Source code for project 1 on Udacity iOS Developer Nanodegree 
 
 Project 1 Report
