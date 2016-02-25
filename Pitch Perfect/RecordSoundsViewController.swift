@@ -20,10 +20,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var recordedAudio: RecordedAudio!
     var recordingPaused = false
     
-    let textWhenNotRecording = "Press the microphone to start recording."
-    let textWhenRecording = "Recording..."
-    let textRecordedSuccess = "Recording is done!"
-    let textPausedRecording = "Recording is paused."
+    enum Text: String {
+        case whenNotRecording = "Press the microphone to start recording."
+        case whenRecording = "Recording..."
+        case recordedSuccess = "Recording is done!"
+        case pausedRecording = "Recording is paused."
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         stopButton.hidden = true
         pauseResumeButton.hidden = true
         recordButton.enabled = true
-        recordingStatus.text = textWhenNotRecording
+        recordingStatus.text = Text.whenNotRecording.rawValue
         recordingPaused = false
     }
     
@@ -68,7 +70,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     func setUIForRecording() {
         print("in recordAudio...")
-        recordingStatus.text = textWhenRecording
+        recordingStatus.text = Text.whenRecording.rawValue
         stopButton.hidden = false
         pauseResumeButton.hidden = false
         recordButton.enabled = false
@@ -77,7 +79,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     func setUIForStopRecording() {
         print("stop recording...")
-        recordingStatus.text = textRecordedSuccess
+        recordingStatus.text = Text.recordedSuccess.rawValue
         recordButton.enabled = true
         stopButton.hidden = true
         pauseResumeButton.hidden = true
@@ -85,7 +87,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func setUIForPausedRecording() {
-        recordingStatus.text = textPausedRecording
+        recordingStatus.text = Text.pausedRecording.rawValue
         setPauseImageOnPauseResumeButton(true)
     }
     
